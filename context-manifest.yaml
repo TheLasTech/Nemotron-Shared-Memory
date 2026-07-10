@@ -1,0 +1,50 @@
+# Default retrieval contract for this public knowledge base.
+# This manifest names public documents; it does not expose private canonical memory.
+version: 1
+kind: context-manifest
+title: Public Shared Memory Repository
+objective: >-
+  Explain a public-safe, Markdown-and-Git shared-memory layer and help humans
+  and AI agents retrieve only the notes needed for a specific task.
+
+authoritative_files:
+  - README.md
+  - AGENTS.md
+  - index.md
+
+default_context:
+  - architecture/shared-memory-foundation.md
+  - architecture/scoped-context-bundles.md
+  - workflows/public-agent-install-and-config.md
+
+task_routing:
+  architecture:
+    - architecture/
+    - decisions/
+  agent_setup:
+    - workflows/public-agent-install-and-config.md
+    - prompts/public-shared-memory-onboarding.md
+  publishing_or_redaction:
+    - workflows/private-to-public-publishing-flow.md
+    - workflows/public-redaction-review-checklist.md
+  proposal_updates:
+    - workflows/proposal-first-memory-updates.md
+  examples:
+    - case-studies/
+
+may_modify: []
+
+known_unknowns:
+  - Private canonical notes and infrastructure details are intentionally unavailable.
+  - This repository does not establish behavior of any particular AI vendor, model, or deployment.
+
+do_not_infer:
+  - Private operational facts, credentials, paths, hosts, or identities.
+  - Missing context from the private canonical memory system.
+  - That public documentation grants permission to modify a private source of truth.
+
+retrieval_rules:
+  - Read authoritative_files before task-specific notes.
+  - Select the smallest relevant set using task_routing.
+  - Request more context only when the selected notes cannot answer the task.
+  - State missing private context instead of guessing.

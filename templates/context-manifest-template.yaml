@@ -1,0 +1,27 @@
+# Copy and tailor this file for a project or task-specific context packet.
+version: 1
+kind: context-manifest
+title: Replace With Task Or Project Name
+objective: Replace with a concise, testable objective.
+
+authoritative_files:
+  - README.md
+  - path/to/current-decision.md
+
+default_context:
+  - path/to/primary-architecture-note.md
+  - path/to/relevant-workflow.md
+
+may_modify:
+  - path/to/allowed-area/**
+
+known_unknowns:
+  - State facts that are intentionally absent or need confirmation.
+
+do_not_infer:
+  - State assumptions the agent must not make.
+
+retrieval_rules:
+  - Read authoritative_files first.
+  - Load only task-relevant notes after that.
+  - Ask for missing context rather than guessing.

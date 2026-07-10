@@ -27,6 +27,7 @@ This keeps retrieval cheaper, makes the reasoning trace easier to understand, an
 ## Pattern
 
 - Break large work into smaller tasks.
+- Start from a small context manifest when one exists. It should name the objective, authoritative notes, known unknowns, and prohibited inferences.
 - Retrieve only the notes relevant to the current task.
 - Prefer decisions, summaries, tasks, and stable system notes over raw transcripts.
 - Keep provenance visible so the agent can tell where a fact came from.
@@ -44,6 +45,7 @@ This keeps retrieval cheaper, makes the reasoning trace easier to understand, an
 - A scoped bundle is not a replacement for durable memory.
 - If the scope is too narrow, important constraints can still be missed.
 - Full transcripts may still be useful for deep dives, but should not be the default context surface.
+- A context manifest should point to source notes, not duplicate their contents and create a competing source of truth.
 
 ## Follow-Up
 

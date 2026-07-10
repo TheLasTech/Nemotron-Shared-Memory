@@ -22,9 +22,10 @@ If you are an AI agent being asked to install, configure, mount, or use this pub
 
 1. Mount or open the `public-memory/` folder as your working knowledge base.
 2. Read:
+   - `context-manifest.yaml`
    - `README.md`
    - this `AGENTS.md`
-   - relevant notes under `architecture/`, `workflows/`, `prompts/`, and `decisions/`
+   - only the task-routed notes named in `context-manifest.yaml`
 3. Treat the contents as public-safe documentation, not private operational truth.
 4. Do not assume access to the private `memory/` repo unless the user explicitly provides it.
 5. If indexing or retrieval is needed, index only files inside `public-memory/` unless explicitly told to include other locations.
@@ -34,6 +35,7 @@ If you are an AI agent being asked to install, configure, mount, or use this pub
 ## Usage Rules
 
 - Prefer concise retrieval over loading the entire folder at once.
+- Treat `context-manifest.yaml` as the deterministic default context packet. It names authoritative files, task routing, known unknowns, and prohibited inferences.
 - Use note titles, headings, and folder structure as retrieval anchors.
 - When summarizing, preserve the public-safe framing and do not reintroduce private details from outside context.
 - If asked to create or update public memory, keep changes publication-oriented and rewrite material instead of copying private notes directly.
@@ -52,7 +54,7 @@ Never add:
 
 When answering from this folder:
 
-1. Check `README.md` for scope and boundaries.
-2. Search the most relevant domain folder first.
+1. Read `context-manifest.yaml`, then its `authoritative_files`.
+2. Use `task_routing` to select the smallest relevant note set.
 3. Use templates under `templates/` when drafting new public notes.
 4. If a topic clearly belongs in private memory instead, say so and ask for the correct source or workspace.

@@ -25,16 +25,22 @@ In practice, that means this repository is not a raw export or a full private va
 
 For actual use, the expected read path is:
 
-- start with `README.md` for scope and boundaries
+- start with `context-manifest.yaml` for the machine-readable default context and non-inference rules
+- read `README.md` for scope and boundaries
 - use `index.md` to find the relevant note set
-- read one architecture or workflow note instead of loading the whole repo
+- read only the architecture or workflow note routed to the task instead of loading the whole repo
 - use `AGENTS.md` when an AI tool needs mounting, indexing, or retrieval guidance
+
+The manifest is a retrieval contract, not a second knowledge base. It points to
+the reviewed notes that are authoritative for this public layer, records known
+unknowns, and makes the boundaries explicit before an agent starts reasoning.
 
 ## Start Here
 
 If you want one concrete entry point instead of browsing blind:
 
 - Read `architecture/shared-memory-foundation.md` for the core model.
+- Read `context-manifest.yaml` for the default AI context packet.
 - Read `workflows/public-agent-install-and-config.md` for how an agent should mount and use this repo.
 - Read `case-studies/scoped-retrieval-in-practice.md` for a practical example of scoped retrieval instead of loading everything.
 - Use `index.md` for a guided map of the repo.
@@ -56,6 +62,7 @@ If you want one concrete entry point instead of browsing blind:
 - `decisions/` - compact rationale for key design choices behind the public layer.
 - `case-studies/` - concrete examples showing how the patterns were applied in practice.
 - `templates/` - starter structure for authoring additional public-safe notes.
+- `context-manifest.yaml` - machine-readable default context, retrieval routing, and explicit non-inference boundaries.
 
 ## Layout
 

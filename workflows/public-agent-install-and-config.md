@@ -27,15 +27,17 @@ Install and configure outside agents against the public-memory layer by granting
 
 1. Obtain the published `public-memory/` folder or repository snapshot.
 2. Mount, open, or upload only that public-memory content.
-3. Read `README.md` and `AGENTS.md` before task-specific notes.
-4. Configure retrieval to search inside `architecture/`, `workflows/`, `decisions/`, `prompts/`, and `templates/`.
-5. Confirm the agent understands that public memory is derived and incomplete by design.
-6. Use scoped retrieval during work instead of loading the whole corpus into a prompt.
-7. If a task requires private operational context, pause and request the correct private source explicitly.
+3. Read `context-manifest.yaml`, `README.md`, and `AGENTS.md` before task-specific notes.
+4. Use the manifest's authoritative files and task routing to select the smallest relevant bundle.
+5. Configure retrieval to search inside `architecture/`, `workflows/`, `decisions/`, `prompts/`, and `templates/` only when the manifest does not already name the needed note.
+6. Confirm the agent understands that public memory is derived and incomplete by design.
+7. Use scoped retrieval during work instead of loading the whole corpus into a prompt.
+8. If a task requires private operational context, pause and request the correct private source explicitly.
 
 ## Minimal Setup Checklist
 
 - The agent can access `public-memory/`.
+- The agent reads `context-manifest.yaml` before selecting supporting notes.
 - The agent reads `README.md`.
 - The agent reads `AGENTS.md`.
 - The agent knows which subfolders to search first.
@@ -55,6 +57,13 @@ Install and configure outside agents against the public-memory layer by granting
 - Build the index from `public-memory/` only.
 - Keep filenames, headings, and frontmatter available to the retrieval layer when possible.
 - Refresh the index when published notes change.
+
+### Task-Level Context Manifests
+
+- Start with the repository `context-manifest.yaml` as the default packet.
+- For a repeated project or task, create a small manifest from `templates/context-manifest-template.yaml`.
+- Point at canonical public notes rather than duplicating their contents in the manifest.
+- Include authoritative files, allowed edit scope, known unknowns, and explicit non-inference rules.
 
 ### Chat Tool With File Uploads
 

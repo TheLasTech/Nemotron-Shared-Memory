@@ -21,6 +21,7 @@ This index helps humans and AI agents navigate the public-memory layer without h
 
 - `README.md` - what this repository is, who it is for, and where to begin
 - `AGENTS.md` - how an AI agent should mount, index, and query the repo safely
+- `context-manifest.yaml` - machine-readable default context packet, task routing, known unknowns, and non-inference rules
 - `LICENSE.md` - publication license
 - `CONTRIBUTING.md` - feedback and correction path
 - `prompts/public-shared-memory-onboarding.md` - reusable onboarding prompt for agents
@@ -51,10 +52,11 @@ This index helps humans and AI agents navigate the public-memory layer without h
 ## Templates
 
 - `templates/public-note-template.md` - starter structure for authoring new public notes
+- `templates/context-manifest-template.yaml` - starter structure for a task or project-specific context packet
 
 ## Reading Order
 
-1. Read the public scope and boundaries.
+1. Read `context-manifest.yaml` and the authoritative files it names.
 2. Read one architecture note to understand the model.
-3. Read one workflow note for practical operation.
+3. Read one task-routed workflow note for practical operation.
 4. Use the prompt or template only when applying the pattern.
